@@ -31,7 +31,7 @@ module.exports = {
           Users.update( userId, {
       
             // Generate a unique URL where the avatar can be downloaded.
-            avatarURL: require('util').format('%s/users/avatar/%s', baseUrl, userId),
+            avatarURL: require('util').format('%susers/avatar/%s', baseUrl, userId),
       
             // Grab the first file and use it's `fd` (file descriptor)
             avatarFD: uploadedFiles[0].fd
@@ -54,19 +54,8 @@ module.exports = {
           if (!user.avatarFD) {
             return res.notFound();
           }
-      
-          var SkipperDisk = require('skipper-disk');
-          var fileAdapter = SkipperDisk(/* optional opts */);
-      
-          // set the filename to the same file as the user uploaded
-          res.set("Content-disposition", "attachment; filename='" + file.name + "'");
-      
-          // Stream the file down
-          fileAdapter.read(user.avatarFD)
-          .on('error', function (err){
-            return res.serverError(err);
-          })
-          .pipe(res);
+
+    	  res.sendFile(user.avatarFD);
         });
       }
 };
