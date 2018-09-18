@@ -40,7 +40,25 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 ### Contact
 
 ## Custom Endpoints
+    Get all patients of doctor
+    ```
+    :base_url/doctor/:doctor_id/patients
+    ```
 
+    Get Patient Info
+    ```
+    :base_url/patient/:patient_id/doctor/:doctor_id
+    ```
+
+    Patients example body request
+    ```
+    {
+    "email": "email@email.com",
+    "name": "Patient Full Name",
+    "canAccess": ["doctor_id"],
+    "notes": "long string"
+    }
+    ```
     ```
     'POST /users/:id/avatar'
     'GET /users/avatar/:id'

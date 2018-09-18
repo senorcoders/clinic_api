@@ -43,11 +43,19 @@ module.exports.routes = {
   //  ╔═╗╔═╗╦  ╔═╗╔╗╔╔╦╗╔═╗╔═╗╦╔╗╔╔╦╗╔═╗
   //  ╠═╣╠═╝║  ║╣ ║║║ ║║╠═╝║ ║║║║║ ║ ╚═╗
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
-  'POST /users/:id/avatar':                          { controller: 'UsersController', action:'uploadAvatar' },
-  'GET /users/avatar/:id':                           { controller: 'UsersController', action:'avatar' },
+  'GET /patient/:patientID/doctor/:doctorID':         { controller: 'PatientController', action: "getPatient" }, 
+  
+  'GET /doctor/:doctorID/patients':                   { controller: 'DoctorController', action: "getMyPatients" }, 
+  
+  'GET /patient/:id/history':                         { controller: 'PatientController', action: "getHistory" },   
 
-  'POST /services/:id/image':                          { controller: 'ServicesController', action:'uploadImage' },
-  'GET /services/image/:id':                           { controller: 'ServicesController', action:'getImage' },
+  'POST /patient/':                                   { controller: 'PatientController', action: "createPatient" }, 
+
+  'POST /users/:id/avatar':                           { controller: 'UsersController', action:'uploadAvatar' },
+  'GET /users/avatar/:id':                            { controller: 'UsersController', action:'avatar' },
+
+  'POST /services/:id/image':                         { controller: 'ServicesController', action:'uploadImage' },
+  'GET /services/image/:id':                          { controller: 'ServicesController', action:'getImage' },
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
