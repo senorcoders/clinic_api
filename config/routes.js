@@ -46,6 +46,7 @@ module.exports.routes = {
   'GET /patient/:patientID/doctor/:doctorID':         { controller: 'PatientController', action: "getPatient" }, 
   
   'GET /doctor/:doctorID/patients':                   { controller: 'DoctorController', action: "getMyPatients" }, 
+  'PUT /v1.0/doctor/:doctorID':                       { controller: 'DoctorController', action: 'update' },
   
   'GET /patient/:id/history':                         { controller: 'PatientController', action: "getHistory" },   
 
@@ -56,6 +57,10 @@ module.exports.routes = {
 
   'POST /services/:id/image':                         { controller: 'ServicesController', action:'uploadImage' },
   'GET /services/image/:id':                          { controller: 'ServicesController', action:'getImage' },
+
+  
+  'POST /v1.0/account' :                              { controller: 'AccountController', action:'create' },
+  'POST /v1.0/account/login' :                        { controller: 'AccountController', action: 'login' },
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

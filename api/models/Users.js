@@ -19,6 +19,9 @@ module.exports = {
       type: 'string',
       unique: true
     },
+    password: {
+      type: 'string',
+    },
     avatarURL: {
       type: 'string'
     },

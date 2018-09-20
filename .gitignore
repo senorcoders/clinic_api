@@ -62,3 +62,4 @@ typings/
 
 config/datastores.js
 config/local.js
+config/custom.js

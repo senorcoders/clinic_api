@@ -18,5 +18,11 @@ module.exports.policies = {
   ***************************************************************************/
 
   // '*': true,
-
+ 
+    '*': ['Auth'],        
+    
+    AccountController 	: {
+      login: true
+    } 
+    
 };
