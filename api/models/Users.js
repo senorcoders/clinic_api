@@ -35,6 +35,9 @@ module.exports = {
     },
     notes: {
       type: 'string'
+    },
+    active: {
+      type: 'boolean'
     }
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
