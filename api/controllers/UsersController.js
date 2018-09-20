@@ -5,8 +5,8 @@
  * @help        :: See https://sailsjs.com/docs/concepts/actions
  */
 
-module.exports = {
-  
+module.exports = {      
+
     uploadAvatar: function (req, res) {
       userId = req.param('id');
       //userId = req.session.userId
@@ -59,4 +59,3 @@ module.exports = {
       });
     }
 };
-

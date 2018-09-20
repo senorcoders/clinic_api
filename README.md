@@ -70,3 +70,9 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
     'GET /services/image/:id'
     ```
     field name for upload the image "serviceImage"
+
+## Redis
+
+sudo apt-get install redis-server
+
+redis-server --daemonize yes

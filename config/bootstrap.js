@@ -29,6 +29,15 @@ module.exports.bootstrap = async function(done) {
 
   // Don't forget to trigger `done()` when this bootstrap function's logic is finished.
   // (otherwise your server will never lift, since it's waiting on the bootstrap)
-  return done();
+  //return done();
+
+  var client = RedisService.prepareConnect().createClient(process.env.REDIS_PORT, process.env.REDIS_HOST);
+  client.on('connect',function(){
+      sails.log.debug('Redis connected');
+      //client.select(process.env.REDIS_DB);
+      client.select(1);
+      RedisService.setConnection(client);
+    return done();
+  });
 
 };
