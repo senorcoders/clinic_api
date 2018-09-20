@@ -39,6 +39,19 @@ Note:  Generators are usually run using the globally-installed `sails` CLI (comm
 
 ### Contact
 
+### Login
+
+```
+POST base_url/v1.0/account/login
+```
+parameters: 
+```
+email 
+password
+return :token
+```
+all request should had the token in the header
+
 ## Custom Endpoints
     Get all patients of doctor
     ```
