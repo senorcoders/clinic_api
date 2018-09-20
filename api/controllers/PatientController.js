@@ -35,7 +35,13 @@ module.exports = {
             patientInfo = await Users.find( { 
                where: { id: patientID, roles: ["Patient"], canAccess: [ doctorID ] },               
                select: ['name', 'email', 'avatarURL', 'notes']
-            } )
+            } ).populate('currentSwords', {
+                where: {
+                  color: 'purple'
+                },
+                limit: 3,
+                sort: 'hipness DESC'
+              })
             .then(function (patient) { 
                 console.log(patient);
 
