@@ -6,7 +6,49 @@
  */
 
 module.exports = {
-    
+    getDoctorInfo: async ( req, res ) => {
+		let doctorID  = req.param('doctorID');
+		let response = {};
+		
+
+		doctoInfo = await Users.find( { 
+			id: doctorID,
+			active: true
+		 } )
+		 .then( function( info ) {
+			 delete info["password"];
+			 return  info;
+		 } )
+		 .catch( function( error ) {
+			 return res.serverError( error );
+		 } );
+
+		 servicesInfo = await Services.find( {
+			user: doctorID
+		 } )
+		 .then( function( services ) {
+			return  services;
+		} )
+		 .catch( function( error ) {
+			return res.serverError( error );
+		 } )
+
+		 contactInfo = await Contact.find( { 
+			 user: doctorID
+		  } )
+		  .then( function( contact ) {
+			return  contact;
+		} )
+		  .catch( function( error ) {
+			return res.serverError( error );
+		 } )
+		 delete doctoInfo["password"];
+		 response.info = await doctoInfo;
+		 response.services = await servicesInfo;
+		 response.contact = await contactInfo;
+		 res.json( response );
+
+	},
     getMyPatients: async ( req, res ) => {
         try {            
             let doctorID  = req.param('doctorID');
