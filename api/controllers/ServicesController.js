@@ -30,7 +30,7 @@ module.exports = {
           Services.update( serviceId, {
       
             // Generate a unique URL where the avatar can be downloaded.
-            imageURL: require('util').format('%sservices/image/%s', baseUrl, serviceId),
+            imageURL: require('util').format('%sservices/image/%s', baseUrl , serviceId),
       
             // Grab the first file and use it's `fd` (file descriptor)
             imageFD: uploadedFiles[0].fd
@@ -47,13 +47,13 @@ module.exports = {
         Services.findOne(req.param('id')).exec(function (err, service){
           if (err) return res.serverError(err);
           if (!service) return res.notFound();
-      
+
           // Service has no avatar image uploaded.
           // (should have never have hit this endpoint and used the default image)
           if (!service.imageFD) {
             return res.notFound();
           }
-  
+	var baseUrl = sails.config.custom.baseUrl;  
         res.sendFile(service.imageFD);
         });
       }

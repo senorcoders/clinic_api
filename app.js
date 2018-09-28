@@ -1,3 +1,4 @@
+require('dotenv').config();
 /**
  * app.js
  *
@@ -26,14 +27,15 @@
 // > Note: This is not required in order to lift, but it is a convenient default.
 process.chdir(__dirname);
 
+require('dotenv').config({ path: './.env' });
 
 
 // Attempt to import `sails` dependency, as well as `rc` (for loading `.sailsrc` files).
 var sails;
 var rc;
 try {
-  sails = require('sails');
-  rc = require('sails/accessible/rc');
+  sails = require('sails');  
+  rc = require('sails/accessible/rc');  
 } catch (err) {
   console.error('Encountered an error when attempting to require(\'sails\'):');
   console.error(err.stack);

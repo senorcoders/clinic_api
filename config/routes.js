@@ -45,14 +45,24 @@ module.exports.routes = {
   //  ╩ ╩╩  ╩  ╚═╝╝╚╝═╩╝╩  ╚═╝╩╝╚╝ ╩ ╚═╝
   'GET /patient/:patientID/doctor/:doctorID':         { controller: 'PatientController', action: "getPatient" }, 
   
+  'GET /doctor/:doctorID':                            { controller: 'DoctorController', action: 'getDoctorInfo' },
+
   'GET /doctor/:doctorID/patients':                   { controller: 'DoctorController', action: "getMyPatients" }, 
+  
   'PUT /v1.0/doctor/:doctorID':                       { controller: 'DoctorController', action: 'update' },
   
   'GET /patient/:id/history':                         { controller: 'PatientController', action: "getHistory" },   
 
   'POST /patient/':                                   { controller: 'PatientController', action: "createPatient" }, 
 
-  'POST /users/:id/avatar':                           { controller: 'UsersController', action:'uploadAvatar' },
+  'POST /users/:id/avatar':                           { controller: 'UsersController', 
+                                                        action:'uploadAvatar', 
+                                                        cors: {
+                                                            allowOrigins: '*',
+                                                            allowRequestHeaders: 'Content-Type, Authorization'  
+                                                        } 
+                                                      },
+                                                      
   'GET /users/avatar/:id':                            { controller: 'UsersController', action:'avatar' },
 
   'POST /services/:id/image':                         { controller: 'ServicesController', action:'uploadImage' },
