@@ -41,11 +41,24 @@ module.exports = {
 		} )
 		  .catch( function( error ) {
 			return res.serverError( error );
+		} )
+
+		schoolingInfo = await Schooling.find( { 
+			user: doctorID
 		 } )
+		 .then( function( contact ) {
+		   return  contact;
+		} )
+			.catch( function( error ) {
+			return res.serverError( error );
+		} )
+
+
 		 delete doctoInfo["password"];
-		 response.info = await doctoInfo;
-		 response.services = await servicesInfo;
-		 response.contact = await contactInfo;
+		 response.info       =  await doctoInfo;
+		 response.services   = 	await servicesInfo;
+		 response.contact    = 	await contactInfo;
+		 response.schooling  = 	await schoolingInfo;
 		 res.json( response );
 
 	},

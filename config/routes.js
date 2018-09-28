@@ -72,6 +72,10 @@ module.exports.routes = {
   'POST /v1.0/account' :                              { controller: 'AccountController', action:'create' },
   'POST /v1.0/account/login' :                        { controller: 'AccountController', action: 'login' },
 
+  'POST /schooling/:id/image':                         { controller: 'SchoolingController', action:'uploadImage' },
+  'GET /schooling/image/:id':                          { controller: 'SchoolingController', action:'getImage' },
+  
+
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
