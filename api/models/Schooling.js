@@ -24,7 +24,7 @@ module.exports = {
     imageURL: {
       type: 'string'
     },
-    imagenFD: {
+    imageFD: {
       type: 'string'
     },
 

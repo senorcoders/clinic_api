@@ -37,7 +37,7 @@ module.exports = {
             })
             .exec(function (err){
             if (err) return res.serverError(err);
-            return res.ok();
+		return res.status(200).send('ok');
             });
         });
     },

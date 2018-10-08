@@ -19,6 +19,12 @@ module.exports = {
       type: 'string',
       unique: true
     },
+    phone: {
+      type: 'string',
+    },
+    birthday: {
+      type: 'string',
+    },
     password: {
       type: 'string',
     },

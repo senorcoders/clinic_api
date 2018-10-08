@@ -34,7 +34,7 @@ module.exports = {
 
             patientInfo = await Users.find( { 
                where: { id: patientID, roles: ["Patient"], canAccess: [ doctorID ] },               
-               select: ['name', 'email', 'avatarURL', 'notes']
+               select: ['name', 'email', 'phone', 'birthday', 'avatarURL', 'notes']
             } )/*.populate('currentSwords', {
                 where: {
                   color: 'purple'

@@ -18,10 +18,10 @@ module.exports = {
     note: {
       type: 'string'
     },
-    imagenURL: {
+    imageURL: {
       type: 'string'
     },
-    imagenFD: {
+    imageFD: {
       type: 'string'
     },
 

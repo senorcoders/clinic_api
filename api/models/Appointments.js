@@ -12,6 +12,12 @@ module.exports = {
       type: 'string',
       columnType: 'date'
     },
+    height: {
+      type: 'string'
+    },
+    weight: {
+      type: 'string'
+    },
     reason: {
       type: 'string'
     },

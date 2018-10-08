@@ -74,7 +74,11 @@ module.exports.routes = {
 
   'POST /schooling/:id/image':                         { controller: 'SchoolingController', action:'uploadImage' },
   'GET /schooling/image/:id':                          { controller: 'SchoolingController', action:'getImage' },
-  
+
+  'POST /checkups/:id/image':			      { controller: 'CheckupsController', action: 'uploadImage' },
+  'GET /checkups/image/:id':			      { controller: 'CheckupsController', action: 'getImage' },
+
+  'GET /appointments/:patientID/doctor/:doctorID':   { controller: 'AppointmentsController', action:'getPatientHistory' },  
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

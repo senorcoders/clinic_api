@@ -68,7 +68,7 @@ module.exports = {
 
             patientInfo = await Users.find( { 
                where: { roles: ["Patient"], canAccess: [ doctorID ] },               
-               select: ['name', 'email', 'avatarURL', 'notes'],
+               select: ['name', 'email', 'avatarURL', 'notes', 'birthday'],
                sort: 'name ASC'
             } )
             .then(function (patients) { 
