@@ -79,7 +79,10 @@ module.exports.routes = {
   'GET /checkups/image/:id':			      { controller: 'CheckupsController', action: 'getImage' },
 
   'GET /appointments/:patientID/doctor/:doctorID':   { controller: 'AppointmentsController', action:'getPatientHistory' },  
+ 
+  'GET /testemail/:type':			     {controller: 'AppointmentsController', action:'sendAppointmentEmail' },
 
+  'GET /send/:email/:appointmentID':    {controller: 'PrescriptionController', action:'sendPrescriptionEmail' }
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝
